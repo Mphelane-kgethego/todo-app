@@ -1,0 +1,56 @@
+.main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: sans-serif;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.taskCard {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background: white;
+}
+
+.taskCardOverdue {
+  composes: taskCard;
+  background: #ffe5e5;
+}
+
+.overdueLabel {
+  color: red;
+  font-weight: bold;
+}
+
+.archivedLabel {
+  color: #888;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.archiveButton {
+  margin-top: 0.5rem;
+}
