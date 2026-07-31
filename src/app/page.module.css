@@ -8,6 +8,8 @@
 
 .header {
   font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-bottom: 1.5rem;
 }
 
@@ -61,9 +63,10 @@
 .list {
   list-style: none;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
+  max-width: 700px;
 }
 
 .taskCard {
@@ -252,3 +255,38 @@
 .cancelButton:hover {
   background: #f5f5f5;
 }
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.titleRowRight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.topicRow {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.dateRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.statusRow {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: #444;
+}
+

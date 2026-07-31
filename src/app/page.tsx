@@ -167,9 +167,14 @@ export default function Home() {
                 </div>
               </div>
             ) : (
-              <>
-                <div className={styles.cardHeader}>
-                  <div className={styles.taskTitle}>{task.title}</div>
+            <>
+              <div className={styles.titleRow}>
+                <div className={styles.taskTitle}>
+                  {task.title}
+                </div>
+                <div className={styles.titleRowRight}>
+                  {isOverdue(task) && <span className={styles.badgeOverdue}>OVERDUE</span>}
+                  {task.archived_at && <span className={styles.badgeArchived}>Archived</span>}
                   {!task.archived_at && (
                     <button
                       onClick={() => startEdit(task)}
@@ -184,20 +189,24 @@ export default function Home() {
                     </button>
                   )}
                 </div>
-                <div className={styles.description}>{task.description}</div>
-                <div className={styles.meta}>
-                  <span className={styles.badgeTopic}>{task.topic}</span>
-                  <span className={statusBadgeClass(task.status, styles)}>{task.status}</span>
-                  {isOverdue(task) && <span className={styles.badgeOverdue}>OVERDUE</span>}
-                  {task.archived_at && <span className={styles.badgeArchived}>Archived</span>}
-                  <span className={styles.dueDate}>Due {task.due_date}</span>
-                </div>
-                {!task.archived_at && (
-                  <button onClick={() => archiveTask(task.id)} className={styles.archiveButton}>
-                    Archive
-                  </button>
-                )}
-              </>
+              </div>
+
+              <div className={styles.topicRow}>Topic: {task.topic}</div>
+
+              <div className={styles.dateRow}>
+                <span>Due: {task.due_date}</span>
+              </div>
+
+              <span>Status: <span className={statusBadgeClass(task.status, styles)}>{task.status}</span></span>
+
+              <div className={styles.description}>{task.description}</div>
+
+              {!task.archived_at && (
+                <button onClick={() => archiveTask(task.id)} className={styles.archiveButton}>
+                  Archive
+                </button>
+              )}
+            </>
             )}
           </li>
         ))}
