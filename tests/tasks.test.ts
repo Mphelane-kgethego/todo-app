@@ -109,3 +109,41 @@ describe('persistence', () => {
     expect((rows[0] as any).title).toBe('Persisted task');
   });
 });
+
+describe('editing a task', () => {
+  it('updates all fields via PATCH and the change is reflected on refetch', async () => {
+    const { POST, PATCH, GET } = await loadRoutes();
+
+    const createRes = await POST(new Request('http://localhost/api/tasks', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title: 'Old title', description: 'Old desc', due_date: '2026-08-01', topic: 'Old topic' }),
+    }));
+    const { id } = await createRes.json();
+
+    const patchRes = await PATCH(
+      new Request(`http://localhost/api/tasks/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: 'New title',
+          description: 'New desc',
+          due_date: '2026-09-01',
+          topic: 'New topic',
+          status: 'In-Progress',
+        }),
+      }),
+      { params: Promise.resolve({ id: String(id) }) }
+    );
+    expect(patchRes.status).toBe(200);
+
+    const listRes = await GET(new Request('http://localhost/api/tasks'));
+    const [task] = await listRes.json();
+
+    expect(task.title).toBe('New title');
+    expect(task.description).toBe('New desc');
+    expect(task.due_date).toBe('2026-09-01');
+    expect(task.topic).toBe('New topic');
+    expect(task.status).toBe('In-Progress');
+  });
+});
