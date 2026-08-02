@@ -1,4 +1,3 @@
-cat > docs/running-it.md << 'EOF'
 # Running It
 
 ## Requirements
@@ -27,4 +26,3 @@ Visit `http://localhost:3000`.
 npm test
 ```
 Runs the full test suite (5 tests) against a throwaway SQLite database — it does not touch your local `data/app.db`.
-EOF
