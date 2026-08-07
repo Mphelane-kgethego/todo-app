@@ -1,0 +1,391 @@
+.main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 3rem;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.header {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.form input,
+.form textarea {
+  flex: 1 1 180px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.form button {
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background: #1d4ed8;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.controls select {
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.taskCard {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.taskCardOverdue {
+  composes: taskCard;
+  border-color: #f5b5b5;
+  background: #fff5f5;
+}
+
+.taskTitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.description {
+  margin: 0.4rem 0;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+
+
+
+.overdueLabel {
+  color: red;
+  font-weight: bold;
+}
+
+.archivedLabel {
+  color: #888;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badgeTopic {
+  composes: badge;
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.badgeTodo {
+  composes: badge;
+  background: #f1f1f1;
+  color: #444;
+}
+
+.badgeInProgress {
+  composes: badge;
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badgeComplete {
+  composes: badge;
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badgeOverdue {
+  composes: badge;
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.badgeArchived {
+  composes: badge;
+  background: #e5e5e5;
+  color: #666;
+}
+
+.dueDate {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.archiveButton {
+  margin-top: 0.75rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.archiveButton:hover {
+  background: #f5f5f5;
+}
+
+.badge, select.badgeTodo, select.badgeInProgress, select.badgeComplete {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  font-family: inherit;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.editButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #666;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.editButton:hover {
+  background: #f0f0f0;
+  color: #222;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.editForm input,
+.editForm textarea,
+.editForm select {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.editActions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.saveButton {
+  padding: 0.35rem 0.9rem;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.saveButton:hover {
+  background: #1d4ed8;
+}
+
+.cancelButton {
+  padding: 0.35rem 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.cancelButton:hover {
+  background: #f5f5f5;
+}
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.titleRowRight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.topicRow {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.dateRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.statusRow {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.filterGroup {
+  position: relative;
+}
+
+.filterButton {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.filterButton:hover {
+  background: #f5f5f5;
+}
+
+.dropdownPanel {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0.6rem;
+  min-width: 200px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.dropdownRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.topicInput {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+.clearButton {
+  background: none;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-align: left;
+  padding: 0.2rem 0;
+}
+
+
+.filterMenuItem {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0.4rem 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.filterMenuItem:hover {
+  background: #f5f5f5;
+}
+
+.filterSubPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.3rem 0.3rem 0.5rem 0.6rem;
+  border-left: 2px solid #eee;
+  margin-left: 0.3rem;
+}
+  
+  .columnButton {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.columnButtonActive {
+  composes: columnButton;
+  border-color: #2563eb;
+  color: #2563eb;
+  background: #eff6ff;
+}
